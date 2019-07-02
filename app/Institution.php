@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Institutions extends Model
+class Institution extends Model
 {
     public $timestamps = true;
     protected $fillable = [

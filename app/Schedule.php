@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Schedules extends Model
+class Schedule extends Model
 {
     public $timestamps = true;
     protected $fillable = [
@@ -14,8 +14,7 @@ class Schedules extends Model
         'activity_id',
         'institution_id'
     ];
-    
- 
+     
     public function activity()
     {
         return $this->belongsTo(Activity::class);
