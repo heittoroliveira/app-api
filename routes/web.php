@@ -15,23 +15,113 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 $router->group(['prefix' => 'api','middleware'=>'autenticador'], function () use ($router) {
-    $router->group(['prefix' => 'series'], function () use ($router) {
-        $router->post('', 'SeriesController@store');
-        $router->get('', 'SeriesController@index');
-        $router->get('{id}', 'SeriesController@show');
-        $router->put('{id}', 'SeriesController@update');
-        $router->delete('{id}', 'SeriesController@destroy');
-
-        $router->get('{serieId}/episodios', 'EpisodiosController@buscaPorSerie');
+    $router->group(['prefix'=>'user'],function() use ($router){
+        $router->post('', 'UserController@store');
+        $router->get('', 'UserController@index');
+        $router->get('{id}', 'UserController@show');
+        $router->put('{id}', 'UserController@update');
+        $router->delete('{id}', 'UserController@destroy');
     });
-
-    $router->group(['prefix' => 'episodios'], function () use ($router) {
-        $router->post('', 'EpisodiosController@store');
-        $router->get('', 'EpisodiosController@index');
-        $router->get('{id}', 'EpisodiosController@show');
-        $router->put('{id}', 'EpisodiosController@update');
-        $router->delete('{id}', 'EpisodiosController@destroy');
+    $router->group(['prefix'=>'country'],function() use ($router){
+        $router->post('', 'CountryController@store');
+        $router->get('', 'CountryController@index');
+        $router->get('{id}', 'CountryController@show');
+        $router->put('{id}', 'CountryController@update');
+        $router->delete('{id}', 'CountryController@destroy');
+    });
+    $router->group(['prefix'=>'state'],function() use ($router){
+        $router->post('', 'StateController@store');
+        $router->get('', 'StateController@index');
+        $router->get('{id}', 'StateController@show');
+        $router->put('{id}', 'StateController@update');
+        $router->delete('{id}', 'StateController@destroy');
+    });
+    $router->group(['prefix'=>'city'],function() use ($router){
+        $router->post('', 'CityController@store');
+        $router->get('', 'CityController@index');
+        $router->get('{id}', 'CityController@show');
+        $router->put('{id}', 'CityController@update');
+        $router->delete('{id}', 'CityController@destroy');
+    });
+    $router->group(['prefix'=>'address'],function() use ($router){
+        $router->post('', 'AddressController@store');
+        $router->get('', 'AddressController@index');
+        $router->get('{id}', 'AddressController@show');
+        $router->put('{id}', 'AddressController@update');
+        $router->delete('{id}', 'AddressController@destroy');
+    });
+    $router->group(['prefix'=>'institution-type'],function() use ($router){
+        $router->post('', 'InstitutionTypeController@store');
+        $router->get('', 'InstitutionTypeController@index');
+        $router->get('{id}', 'InstitutionTypeController@show');
+        $router->put('{id}', 'InstitutionTypeController@update');
+        $router->delete('{id}', 'InstitutionTypeController@destroy');
+    });
+    $router->group(['prefix'=>'institution'],function() use ($router){
+        $router->post('', 'InstitutionController@store');
+        $router->get('', 'InstitutionController@index');
+        $router->get('{id}', 'InstitutionController@show');
+        $router->put('{id}', 'InstitutionController@update');
+        $router->delete('{id}', 'InstitutionController@destroy');
+    });
+    $router->group(['prefix'=>'event-category'],function() use ($router){
+        $router->post('', 'EventCategoryController@store');
+        $router->get('', 'EventCategoryController@index');
+        $router->get('{id}', 'EventCategoryController@show');
+        $router->put('{id}', 'EventCategoryController@update');
+        $router->delete('{id}', 'EventCategoryController@destroy');
+    });
+    $router->group(['prefix'=>'event'],function() use ($router){
+        $router->post('', 'EventController@store');
+        $router->get('', 'EventController@index');
+        $router->get('{id}', 'EventController@show');
+        $router->put('{id}', 'EventController@update');
+        $router->delete('{id}', 'EventController@destroy');
+    });
+    $router->group(['prefix'=>'contact'],function() use ($router){
+        $router->post('', 'ContactController@store');
+        $router->get('', 'ContactController@index');
+        $router->get('{id}', 'ContactController@show');
+        $router->put('{id}', 'ContactController@update');
+        $router->delete('{id}', 'ContactController@destroy');
+    });
+    $router->group(['prefix'=>'event-price'],function() use ($router){
+        $router->post('', 'EventPriceController@store');
+        $router->get('', 'EventPriceController@index');
+        $router->get('{id}', 'EventPriceController@show');
+        $router->put('{id}', 'EventPriceController@update');
+        $router->delete('{id}', 'EventPriceController@destroy');
+    });
+    $router->group(['prefix'=>'activity-type'],function() use ($router){
+        $router->post('', 'ActivityTypeController@store');
+        $router->get('', 'ActivityTypeController@index');
+        $router->get('{id}', 'ActivityTypeController@show');
+        $router->put('{id}', 'ActivityTypeController@update');
+        $router->delete('{id}', 'ActivityTypeController@destroy');
+    });
+    $router->group(['prefix'=>'activity'],function() use ($router){
+        $router->post('', 'ActivityController@store');
+        $router->get('', 'ActivityController@index');
+        $router->get('{id}', 'ActivityController@show');
+        $router->put('{id}', 'ActivityController@update');
+        $router->delete('{id}', 'ActivityController@destroy');
+    });
+    $router->group(['prefix'=>'schedule'],function() use ($router){
+        $router->post('', 'ScheduleController@store');
+        $router->get('', 'ScheduleController@index');
+        $router->get('{id}', 'ScheduleController@show');
+        $router->put('{id}', 'ScheduleController@update');
+        $router->delete('{id}', 'ScheduleController@destroy');
+    });
+    $router->group(['prefix'=>'activity'],function() use ($router){
+        $router->post('', 'ActivityTagController@store');
+        $router->get('', 'ActivityTagController@index');
+        $router->get('{id}', 'ActivityTagController@show');
+        $router->put('{id}', 'ActivityTagController@update');
+        $router->delete('{id}', 'ActivityTagController@destroy');
     });
 });
 
 $router->post('/api/login', 'TokenController@gerarToken');
+
+
