@@ -8,26 +8,32 @@ class Institution extends Model
 {
     public $timestamps = true;
     protected $fillable = [
-        'abbreviation', 
-        'name', 
+        'abbreviation',
+        'name',
         'history',
         'site',
         'address_id',
         'user_id',
         'institution_type_id',
-        'institution_father_id'
+        'institution_father_id',
+        'address_name',
+        'address_neighborhood',
+        'address_number',
+        'address_complement',
+        'address_longitude',
+        'address_latitude',
+        'address_zip_code',
+        'address_city',
+        'address_state'
     ];
+
     protected $appends = ['is_father'];
-    
+
     public function institutions()
     {
         return $this->hasMany(Institution::class, 'institution_father_id', 'id');
     }
- 
-    public function address()
-    {
-        return $this->belongsTo(Address::class);
-    }   
+
 
     public function schedules()
     {
@@ -53,7 +59,7 @@ class Institution extends Model
     {
         return is_null($this->attributes['institution_father_id']);
     }
-    
+
     public function getIsFatherAttribute()
     {
         return is_null($this->attributes['institution_father_id']);

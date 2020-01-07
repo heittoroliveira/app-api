@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Institution;
+use App\Institution;
 
 class InstitutionController extends BaseController
 {

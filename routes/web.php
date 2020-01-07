@@ -22,34 +22,7 @@ $router->group(['prefix' => 'api','middleware'=>'autenticador'], function () use
         $router->put('{id}', 'UserController@update');
         $router->delete('{id}', 'UserController@destroy');
     });
-    $router->group(['prefix'=>'country'],function() use ($router){
-        $router->post('', 'CountryController@store');
-        $router->get('', 'CountryController@index');
-        $router->get('{id}', 'CountryController@show');
-        $router->put('{id}', 'CountryController@update');
-        $router->delete('{id}', 'CountryController@destroy');
-    });
-    $router->group(['prefix'=>'state'],function() use ($router){
-        $router->post('', 'StateController@store');
-        $router->get('', 'StateController@index');
-        $router->get('{id}', 'StateController@show');
-        $router->put('{id}', 'StateController@update');
-        $router->delete('{id}', 'StateController@destroy');
-    });
-    $router->group(['prefix'=>'city'],function() use ($router){
-        $router->post('', 'CityController@store');
-        $router->get('', 'CityController@index');
-        $router->get('{id}', 'CityController@show');
-        $router->put('{id}', 'CityController@update');
-        $router->delete('{id}', 'CityController@destroy');
-    });
-    $router->group(['prefix'=>'address'],function() use ($router){
-        $router->post('', 'AddressController@store');
-        $router->get('', 'AddressController@index');
-        $router->get('{id}', 'AddressController@show');
-        $router->put('{id}', 'AddressController@update');
-        $router->delete('{id}', 'AddressController@destroy');
-    });
+
     $router->group(['prefix'=>'institution-type'],function() use ($router){
         $router->post('', 'InstitutionTypeController@store');
         $router->get('', 'InstitutionTypeController@index');
