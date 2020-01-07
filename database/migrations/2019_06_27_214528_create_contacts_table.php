@@ -23,7 +23,7 @@ class CreateContactsTable extends Migration
             $table->bigInteger('event_id')->unsigned();
             $table->bigInteger('institution_id')->unsigned();
             $table->timestamps();
-                        
+
             $table->foreign('institution_id')->references('id')->on('institutions');
             $table->foreign('event_id')->references('id')->on('events');
         });

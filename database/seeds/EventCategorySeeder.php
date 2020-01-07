@@ -22,6 +22,6 @@ class EventCategorySeeder extends Seeder
         foreach ($eventCategories as $eventCategory) {
             EventCategory::create($eventCategory);
         }
-        
+
     }
 }

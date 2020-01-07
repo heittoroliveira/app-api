@@ -27,15 +27,26 @@ class CreateEventsTable extends Migration
             $table->string('state');
             $table->string('site');
             $table->timestamps();
-           
+
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('institution_id')->unsigned();
-            $table->bigInteger('address_id')->unsigned();
+
+            // Local
+            $table->string('address_name');
+            $table->string('address_neighborhood');
+            $table->bigInteger('address_number');
+            $table->string('address_complement')->nullable();
+            $table->string('address_longitude')->nullable();
+            $table->string('address_latitude')->nullable();
+            $table->string('address_zip_code')->nullable();
+            $table->string('address_city');
+            $table->string('address_state');
+
             $table->bigInteger('event_category_id')->unsigned();
-            
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('institution_id')->references('id')->on('institutions');
-            $table->foreign('address_id')->references('id')->on('addresses');
+
             $table->foreign('event_category_id')->references('id')->on('event_categories');
         });
         Schema::enableForeignKeyConstraints();
