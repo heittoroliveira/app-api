@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivityTagsTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,10 @@ class CreateActivityTagsTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('activity_tags', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('tag_id')->unsigned();
-            $table->bigInteger('activity_id')->unsigned();
+            $table->string('name');
             $table->timestamps();
-            $table->foreign('activity_id')->references('id')->on('activities');
-            $table->foreign('tag_id')->references('id')->on('tags');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -33,7 +30,7 @@ class CreateActivityTagsTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('activity_tags');
+        Schema::dropIfExists('tags');
         Schema::enableForeignKeyConstraints();
     }
 }
